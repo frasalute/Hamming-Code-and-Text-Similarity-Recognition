@@ -1,0 +1,1 @@
+# Hamming-Code-and-Text-Similarity-Recognition
