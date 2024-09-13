@@ -1,6 +1,6 @@
 # Hamming-Code-and-Text-Similarity-Recognition
 
-# 3 Questions to solve with the use of Python
+3 Questions to solve with the use of Python
 
 # Question 2: Hamming Code 
 The focus of the second question is the Hamming Code and its use in the process of coding and de- coding. Coding theory is often concerned with the reliability of communication over noisy channels where errors can occur and therefore error correcting codes are used in a wide range of commu- nication settings (Nuh, 2007). The Hamming codes are a family of linear error-correcting codes that can detect one-bit errors and two-bit errors. They can also be used to correct one-bit errors without detection of uncorrected errors because the program is not able to identify more than one error position, i.e., 2-bit errors, and is not able to give information about other bits in error. The most common use of the Hamming Code is for the (7,4) algorithm, which involves encoding four bits of data into seven bits by adding three parity bits (Epp, 2011).
