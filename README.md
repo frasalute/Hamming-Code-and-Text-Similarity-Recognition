@@ -1,5 +1,8 @@
 # Hamming-Code-and-Text-Similarity-Recognition
 
+(Done in a university setting as project part of a Python Programming class together with other three students.)
+
+
 Three questions to solve with the use of Python.
 
 # Question 2: Hamming Code 
