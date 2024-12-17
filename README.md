@@ -1,13 +1,116 @@
-# Hamming-Code-and-Text-Similarity-Recognition
+# Hamming Code and Text Similarity Recognition
 
-(Done in a university setting as project part of a Python Programming class together with other three students.)
+This repository contains Python implementations for two key tasks: **Hamming Code for error detection/correction** and **text similarity recognition**. The project was developed as part of a Python Programming class in collaboration with three other students.
 
+---
 
-Three questions to solve with the use of Python.
+## **Project Overview**
 
-# Question 2: Hamming Code 
-The focus of the second question is the Hamming Code and its use in the process of coding and de- coding. Coding theory is often concerned with the reliability of communication over noisy channels where errors can occur and therefore error correcting codes are used in a wide range of commu- nication settings (Nuh, 2007). The Hamming codes are a family of linear error-correcting codes that can detect one-bit errors and two-bit errors. They can also be used to correct one-bit errors without detection of uncorrected errors because the program is not able to identify more than one error position, i.e., 2-bit errors, and is not able to give information about other bits in error. The most common use of the Hamming Code is for the (7,4) algorithm, which involves encoding four bits of data into seven bits by adding three parity bits (Epp, 2011).
+The repository addresses two distinct computational problems:
 
-# Question 3: Text Similarity Recognition 
-Question 3 requires the development of a Python program to compute the similarity between a given set of documents. A class named DocumentSimilarity has been created for loading and comparing documents (.txt files). When presented with a text name, the class outputs a data frame containing similarity scores to the rest of the documents already present in the Corpus.
-To calculate similarity, four distinct methods have been implemented: dot product, distance norm, and two variations of cosine similarity. Users are given the flexibility to select a specific method or compare all methods simultaneously. Regardless of the chosen method, the common approach involves comparing the words across documents by transforming them into vectors.
+### **1. Hamming Code: Error Detection and Correction**
+The Hamming Code implementation focuses on encoding, detecting, and correcting errors in binary messages. This task is part of coding theory, which ensures reliable communication over noisy channels.
+
+#### **Key Features**:
+- **Encoding**: Implements the **(7,4) Hamming Code** algorithm to encode 4-bit data into 7-bit codewords using 3 parity bits.
+- **Error Introduction**: Simulate single-bit and two-bit errors to test the algorithm’s robustness.
+- **Error Detection**: Using a parity check matrix, the program identifies the position of single-bit errors.
+- **Error Correction**: Corrects single-bit errors while highlighting limitations in handling two-bit errors.
+- **Decoding**: Converts the corrected binary code back to the original message.
+
+#### **Usage**:
+You can initialize the `HammingCode` class, encode numbers (0-15), introduce errors, and simulate error detection and correction.
+
+Example:
+```python
+message = HammingCode(10)
+message.number_to_vector()
+message.encode()
+message.introduce_error(1, 3)  # Introduce 1-bit error at position 3
+message.paritycheck(True)
+message.correct_error()
+message.decode(True)
+```
+
+---
+
+### **2. Text Similarity Recognition**
+The text similarity tool compares multiple documents and calculates similarity scores using vector-based approaches.
+
+#### **Key Features**:
+- **Document Loading**: Read `.txt` files from a specified folder or single document.
+- **Word Vectorization**: Convert documents into binary and frequency-based vectors.
+- **Similarity Methods**:
+   - **Dot Product**  
+   - **Euclidean Distance Norm**  
+   - **Cosine Similarity**  
+   - **Frequency-Based Cosine Similarity**  
+- **Customizable**: Allows users to compare documents with specific methods or all methods simultaneously.
+- **Output**: Provides a ranked DataFrame of similarity scores for a given document against all other documents in the corpus.
+
+#### **Usage**:
+Initialize the `DocumentSimilarity` class, add documents to the corpus, and compute similarity scores.
+
+Example:
+```python
+document_similarity = DocumentSimilarity()
+document_similarity.read_all_files("Documents_Q3")
+print(document_similarity.add_doc_compute_similarity('Documents_Q3/DemocInn.txt', ['freq-cos','cos','dot', 'norm']))
+```
+
+---
+
+## **How to Run the Project**
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/Hamming-Code-and-Text-Similarity-Recognition.git
+   cd Hamming-Code-and-Text-Similarity-Recognition
+   ```
+
+2. **Setup Environment**:
+   Ensure Python is installed (version 3.7+ recommended). Install required libraries:
+   ```bash
+   pip install numpy pandas
+   ```
+
+3. **Run Hamming Code Example**:
+   Execute the provided Hamming Code examples by running the script:
+   ```bash
+   python hamming_code_example.py
+   ```
+
+4. **Run Text Similarity Example**:
+   Place `.txt` documents into a folder (e.g., `Documents_Q3`) and execute:
+   ```bash
+   python text_similarity_example.py
+   ```
+
+---
+
+## **Folder Structure**
+
+```
+Hamming-Code-and-Text-Similarity-Recognition/
+│
+├── hamming_code.py               # Hamming Code implementation
+├── text_similarity.py            # Text Similarity implementation
+├── Documents_Q3/                 # Folder containing sample text files
+├── README.md                     # Project documentation
+└── requirements.txt              # List of required libraries
+```
+
+---
+
+## **References**
+
+- Epp, S. (2011). *Discrete Mathematics with Applications*.
+- Nuh, F. (2007). *Coding Theory for Reliable Communications*.
+
+---
+
+## **Future Improvements**
+- Extend Hamming Code to support multi-bit error correction.
+- Enhance text similarity by integrating advanced NLP techniques like TF-IDF and BERT embeddings.
+
+---
